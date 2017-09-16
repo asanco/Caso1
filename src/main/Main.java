@@ -16,12 +16,12 @@ public class Main
 	
 	public static void main(String[] args) 
 	{
-		System.out.println("Cargando archivo properties.....");
+		System.out.println("Cargando archivo properties....."+ "\n");
 		try 
 		{
 			propiedades = new Properties();
 			propiedades.load(new FileInputStream("./data/info.properties"));
-			System.out.println("Archivo properties cargado correctamente.");
+			System.out.println("Archivo properties cargado correctamente." + "\n");
 		} 
 		catch (FileNotFoundException e) 
 		{
@@ -41,20 +41,20 @@ public class Main
 	
 	public static void crearClientes()
 	{
-		System.out.println("Creando clientes...");
+		System.out.println("Creando clientes..."+ "\n");
 		int nClientes = Integer.parseInt(propiedades.getProperty("numeroClientes"));
 		for(int i = 1; i <= nClientes; i++)
 		{
 			int nMensajes = Integer.parseInt(propiedades.getProperty("mnsCliente" + i));
 			Cliente c = new Cliente(nMensajes, bufferPrincipal);
-			System.out.println("cliente "+i);
+			System.out.println("Cliente "+i + "\n");
 			c.start();
 		}
 	}
 	
 	public static void crearServidores()
 	{
-		System.out.println("Creando servidores...");
+		System.out.println("Creando servidores..."+ "\n");
 		int nServidores = Integer.parseInt(propiedades.getProperty("numeroServidores"));
 		for(int i = 0; i < nServidores; i++)
 		{
